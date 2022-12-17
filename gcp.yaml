@@ -1,0 +1,16 @@
+---
+plugin: gcp_compute
+
+projects:
+  - youtube-demo-371815
+
+auth_kind: serviceaccount
+service_account_file: /home/admin_/service_account.json
+
+keyed_groups:
+  - key: labels
+    prefix: label
+  - key: zone
+    prefix: zone
+groups:
+  remote: "'ansible-local-host' in (labels|list)"
